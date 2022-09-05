@@ -28,7 +28,7 @@ public class User implements Serializable {
     private Address address;
 
 // CONSTRUCTORS
-    protected User() {
+    public User() {
 
     }
 
@@ -77,5 +77,13 @@ public class User implements Serializable {
 
     public void setBirthDate(Long birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

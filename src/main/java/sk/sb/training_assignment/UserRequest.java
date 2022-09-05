@@ -1,38 +1,18 @@
-package sk.sb.training_assignment.entities;
+package sk.sb.training_assignment;
 
-import javax.persistence.*;
-import java.io.Serializable;
-
-@Entity
-@Table(name = "TA_ADDRESS")
-public class Address implements Serializable {
-
-//ATTRIBUTES
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-
-    @Column(name = "psc")
+public class UserRequest {
     private String psc;
-
-    @Column(name = "street")
     private String street;
-
-    @Column(name = "number")
     private int number;
-
-    @Column(name = "city")
     private String city;
 
-    @OneToOne(mappedBy = "address")
-    private User user;
+    private String name;
+    private String surname;
+    private Long birthDate;
 
-//CONSTRUCTORS
-    public Address() {
+    public UserRequest() {
     }
 
-//GETTERS and SETTERS
     public String getPsc() {
         return psc;
     }
@@ -63,5 +43,29 @@ public class Address implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Long getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Long birthDate) {
+        this.birthDate = birthDate;
     }
 }
