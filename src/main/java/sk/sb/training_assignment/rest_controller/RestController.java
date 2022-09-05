@@ -1,7 +1,7 @@
 package sk.sb.training_assignment.rest_controller;
 
 import org.springframework.web.bind.annotation.*;
-import sk.sb.training_assignment.UserRequest;
+import sk.sb.training_assignment.request.UserRequest;
 import sk.sb.training_assignment.entities.Address;
 import sk.sb.training_assignment.entities.User;
 import sk.sb.training_assignment.service.AddressService;

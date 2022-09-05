@@ -1,4 +1,4 @@
-package sk.sb.training_assignment;
+package sk.sb.training_assignment.request;
 
 public class UserRequest {
     private String psc;
