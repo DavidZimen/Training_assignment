@@ -2,6 +2,9 @@ package sk.sb.training_assignment.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Entity
 @Table(name = "TA_USER")
@@ -21,7 +24,8 @@ public class User implements Serializable {
     private String surname;
 
     @Column(name = "birth_date", nullable = false)
-    private Long birthDate;
+    @Temporal(TemporalType.DATE)
+    private Date birthDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
@@ -39,10 +43,10 @@ public class User implements Serializable {
      * @param pBirthDate - birthdate of the user
      * @param address - address id of given user
      */
-    public User(String pName, String pSurname, Long pBirthDate, Address address) {
+    public User(String pName, String pSurname, String pBirthDate, Address address) {
         this.name = pName;
         this.surname = pSurname;
-        this.birthDate = pBirthDate;
+        this.birthDate = this.parseDate(pBirthDate);
         this.address = address;
     }
 
@@ -71,12 +75,12 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
-    public Long getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Long birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = this.parseDate(birthDate);
     }
 
     public Address getAddress() {
@@ -85,5 +89,14 @@ public class User implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    private Date parseDate(String date) {
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            return (Date) DATE_FORMAT.parse(date);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 }

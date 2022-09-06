@@ -1,24 +1,15 @@
 package sk.sb.training_assignment.request;
 
 public class UserRequest {
-    private String psc;
     private String street;
     private int number;
     private String city;
 
     private String name;
     private String surname;
-    private Long birthDate;
+    private String birthDate;
 
     public UserRequest() {
-    }
-
-    public String getPsc() {
-        return psc;
-    }
-
-    public void setPsc(String psc) {
-        this.psc = psc;
     }
 
     public String getStreet() {
@@ -61,11 +52,11 @@ public class UserRequest {
         this.surname = surname;
     }
 
-    public Long getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Long birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 }

@@ -23,7 +23,7 @@ public class RestController {
         this.addressService = addressService;
     }
 
-    @GetMapping
+    @GetMapping("all")
     public List<User> findAllUsers() {
         return this.userService.findAllUser();
     }
@@ -33,7 +33,7 @@ public class RestController {
         return this.userService.findUserById(id);
     }
 
-    @PostMapping
+    @PostMapping("add")
     public User addUser(@RequestBody UserRequest userRequest) {
         Address address = new Address();
         address.setCity(userRequest.getCity());
@@ -51,12 +51,12 @@ public class RestController {
         return this.userService.addUser(user);
     }
 
-    @PutMapping
+    @PutMapping("update")
     public User updateUser(@RequestBody User user) {
         return this.userService.updateUser(user);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public void deleteUser(@PathVariable("id") Long id) {
         this.userService.deleteUser(id);
     }
