@@ -13,9 +13,6 @@ public class Address implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "psc")
-    private String psc;
-
     @Column(name = "street")
     private String street;
 
@@ -33,14 +30,6 @@ public class Address implements Serializable {
     }
 
 //GETTERS and SETTERS
-    public String getPsc() {
-        return psc;
-    }
-
-    public void setPsc(String psc) {
-        this.psc = psc;
-    }
-
     public String getStreet() {
         return street;
     }
