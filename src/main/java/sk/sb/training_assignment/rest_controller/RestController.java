@@ -36,7 +36,6 @@ public class RestController {
     @PostMapping
     public User addUser(@RequestBody UserRequest userRequest) {
         Address address = new Address();
-        address.setPsc(userRequest.getPsc());
         address.setCity(userRequest.getCity());
         address.setNumber(userRequest.getNumber());
         address.setStreet(userRequest.getStreet());
