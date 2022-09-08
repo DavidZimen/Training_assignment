@@ -23,6 +23,7 @@ public class RestController {
         this.addressService = addressService;
     }
 
+    //TODO implement with argument from HttpParam for pagination.
     @GetMapping("all")
     public List<User> findAllUsers() {
         return userService.findAllUsers();
