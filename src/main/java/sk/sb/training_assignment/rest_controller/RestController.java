@@ -6,9 +6,9 @@ import sk.sb.training_assignment.entities.Address;
 import sk.sb.training_assignment.entities.User;
 import sk.sb.training_assignment.service.AddressService;
 import sk.sb.training_assignment.service.UserService;
+
 import java.util.List;
 import java.util.Optional;
-
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/user")
@@ -25,7 +25,7 @@ public class RestController {
 
     @GetMapping("all")
     public List<User> findAllUsers() {
-        return this.userService.findAllUser();
+        return userService.findAllUsers();
     }
 
     @GetMapping("/{id}")
