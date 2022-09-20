@@ -38,7 +38,7 @@ public class RestController {
     public User addUser(@RequestBody UserRequest userRequest) {
         Address address = new Address();
         address.setCity(userRequest.getCity());
-        address.setNumber(userRequest.getNumber());
+        address.setNumber(userRequest.getHouseNumber());
         address.setStreet(userRequest.getStreet());
 
         this.addressService.addAddress(address);

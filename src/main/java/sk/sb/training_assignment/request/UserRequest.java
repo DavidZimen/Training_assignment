@@ -1,13 +1,13 @@
 package sk.sb.training_assignment.request;
 
 public class UserRequest {
-    private String street;
-    private int number;
-    private String city;
-
     private String name;
     private String surname;
     private String birthDate;
+
+    private String street;
+    private int houseNumber;
+    private String city;
 
     public UserRequest() {
     }
@@ -20,12 +20,12 @@ public class UserRequest {
         this.street = street;
     }
 
-    public int getNumber() {
-        return number;
+    public int getHouseNumber() {
+        return houseNumber;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
     }
 
     public String getCity() {
