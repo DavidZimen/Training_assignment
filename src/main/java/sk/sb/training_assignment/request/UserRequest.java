@@ -1,9 +1,11 @@
 package sk.sb.training_assignment.request;
 
+import java.util.Date;
+
 public class UserRequest {
     private String name;
     private String surname;
-    private String birthDate;
+    private Date birthDate;
 
     private String street;
     private int houseNumber;
@@ -52,11 +54,11 @@ public class UserRequest {
         this.surname = surname;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 }

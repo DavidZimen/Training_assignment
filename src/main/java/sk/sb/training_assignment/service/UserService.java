@@ -3,6 +3,7 @@ package sk.sb.training_assignment.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import sk.sb.training_assignment.entities.User;
 import sk.sb.training_assignment.repository.UserRepository;
@@ -25,7 +26,7 @@ public class UserService {
     }
 
     public List<User> findAllUsers() {
-        return this.userRepository.findAll();
+        return this.userRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     public Optional<User> findUserById(Long id) {

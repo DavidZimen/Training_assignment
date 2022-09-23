@@ -43,11 +43,7 @@ public class RestController {
 
         this.addressService.addAddress(address);
 
-        User user = new User();
-        user.setName(userRequest.getName());
-        user.setSurname(userRequest.getSurname());
-        user.setBirthDate(userRequest.getBirthDate());
-        user.setAddress(address);
+        User user = new User(userRequest.getName(), userRequest.getSurname(), userRequest.getBirthDate(), address);
 
         return this.userService.addUser(user);
     }

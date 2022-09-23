@@ -31,6 +31,9 @@ public class User implements Serializable {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
+    @Version
+    private int version;
+
 // CONSTRUCTORS
     public User() {
 
@@ -43,10 +46,10 @@ public class User implements Serializable {
      * @param pBirthDate - birthdate of the user
      * @param address - address id of given user
      */
-    public User(String pName, String pSurname, String pBirthDate, Address address) {
+    public User(String pName, String pSurname, Date pBirthDate, Address address) {
         this.name = pName;
         this.surname = pSurname;
-        this.birthDate = this.parseDate(pBirthDate);
+        this.birthDate = pBirthDate;
         this.address = address;
     }
 
@@ -79,8 +82,8 @@ public class User implements Serializable {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = this.parseDate(birthDate);
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public Address getAddress() {
@@ -92,7 +95,7 @@ public class User implements Serializable {
     }
 
     private Date parseDate(String date) {
-        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
         try {
             return (Date) DATE_FORMAT.parse(date);
         } catch (ParseException e) {
