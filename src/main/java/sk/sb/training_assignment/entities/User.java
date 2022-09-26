@@ -32,6 +32,7 @@ public class User implements Serializable {
     private Address address;
 
     @Version
+    @Column(name = "version", nullable = false)
     private int version;
 
 // CONSTRUCTORS
@@ -92,6 +93,22 @@ public class User implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Long getPersonalNumber() {
+        return personalNumber;
+    }
+
+    public void setPersonalNumber(Long personalNumber) {
+        this.personalNumber = personalNumber;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
     }
 
     private Date parseDate(String date) {
