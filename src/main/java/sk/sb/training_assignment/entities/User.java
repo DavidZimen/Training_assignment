@@ -14,7 +14,7 @@ public class User implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "personal_number", insertable = false, updatable = false, columnDefinition = "serial")
+    @Column(name = "personal_number", insertable = false, updatable = false)
     private Long personalNumber;
 
     @Column(name = "name", nullable = false)

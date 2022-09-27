@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "TA_ADDRESS")
+
 public class Address implements Serializable {
 
 //ATTRIBUTES
@@ -16,8 +17,8 @@ public class Address implements Serializable {
     @Column(name = "street")
     private String street;
 
-    @Column(name = "number")
-    private int number;
+    @Column(name = "houseNumber")
+    private int houseNumber;
 
     @Column(name = "city")
     private String city;
@@ -39,11 +40,11 @@ public class Address implements Serializable {
     }
 
     public int getNumber() {
-        return number;
+        return houseNumber;
     }
 
     public void setNumber(int number) {
-        this.number = number;
+        this.houseNumber = number;
     }
 
     public String getCity() {
