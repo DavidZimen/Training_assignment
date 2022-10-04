@@ -8,11 +8,13 @@
         <version>2.6.11</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>sk.sb</groupId>
     <artifactId>Training_assignment</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Training_assignment</name>
     <description>Training_assignment</description>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -37,6 +39,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
@@ -50,6 +57,7 @@
     </dependencies>
 
     <build>
+        <finalName>taserver</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
