@@ -8,5 +8,6 @@ import java.util.List;
 
 /**
  * Repository for User entity.
+ * Using JpaRepository.
  */
 public interface UserRepository extends JpaRepository<User, Long> {}
