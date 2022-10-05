@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"sk.sb.training_assignment"},{"l":"sk.sb.training_assignment.entities"},{"l":"sk.sb.training_assignment.repository"},{"l":"sk.sb.training_assignment.request"},{"l":"sk.sb.training_assignment.rest_controller"},{"l":"sk.sb.training_assignment.service"}];updateSearchResults();
