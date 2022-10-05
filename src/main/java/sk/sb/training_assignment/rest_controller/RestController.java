@@ -11,6 +11,7 @@ import java.util.Optional;
 
 /**
  * RestController to handle Http requests from Angular client.
+ * @author <a href="https://github.com/DavidZimen">Dávic Zimen</a>
  */
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/user")

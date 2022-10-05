@@ -9,6 +9,7 @@ import sk.sb.training_assignment.entities.User;
 /**
  * Repository for Address ebtity.
  * Using JpaRepository for automatically generated methods.
+ * @author <a href="https://github.com/DavidZimen">Dávic Zimen</a>
  */
 public interface AddressRepository extends JpaRepository<Address, Long> {
 

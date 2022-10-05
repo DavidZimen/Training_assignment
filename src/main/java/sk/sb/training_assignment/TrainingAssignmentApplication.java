@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 /**
  * Main class of the project.
- * @author <a href="https://github.com/DavidZimen"
+ * @author <a href="https://github.com/DavidZimen">Dávic Zimen</a>
  */
 @SpringBootApplication
 public class TrainingAssignmentApplication {

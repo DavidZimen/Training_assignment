@@ -3,13 +3,13 @@ package sk.sb.training_assignment.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Entity class for address of a user.
  * Contains necessarty attributes and getters and setters for them.
+ * @author <a href="https://github.com/DavidZimen">Dávic Zimen</a>
  */
 @Entity
 @Table(name = "TA_ADDRESS")
