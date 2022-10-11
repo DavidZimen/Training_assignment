@@ -1,5 +1,7 @@
 package sk.sb.training_assignment.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -48,6 +50,7 @@ public class Address implements Serializable {
      * User that lives on this address.
      */
     @OneToOne(mappedBy = "address")
+    @JsonBackReference
     private User user;
 
     /**
