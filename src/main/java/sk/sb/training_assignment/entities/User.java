@@ -1,6 +1,5 @@
 package sk.sb.training_assignment.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +8,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  * Entity class representing user.
@@ -58,7 +55,7 @@ public class User implements Serializable {
     private Date birthDate;
 
     /**
-     * User's address which is its own entity.'
+     * User's address which is its own entity.
      */
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
