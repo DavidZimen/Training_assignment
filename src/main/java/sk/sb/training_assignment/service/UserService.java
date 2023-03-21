@@ -1,36 +1,34 @@
 package sk.sb.training_assignment.service;
 
+import com.scheidtbachmann.ps.search.searchextension.dto.SearchResult;
+import com.scheidtbachmann.ps.search.searchextension.service.Searchable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import sk.sb.training_assignment.entities.User;
 import sk.sb.training_assignment.repository.UserRepository;
+import sk.sb.training_assignment.search.mapper.UserMapper;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service to handle transactions on User entity.
  * @author <a href="https://github.com/DavidZimen">Dávic Zimen</a>
  */
 @Service
-public class UserService {
+public class UserService implements Searchable<SearchResult> {
 
     /**
      * Repository for Address entity.
      */
-    private final UserRepository userRepository;
-
-    /**
-     * Autowired means, that it is automatically connected to the created repository.
-     * @param userRepository - repository, which is automatically initialized, when springboot application is started
-     */
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserMapper userMapper;
+
 
     /**
      * Finding all records in the User table.
@@ -74,5 +72,18 @@ public class UserService {
      */
     public void deleteUser(Long id) {
         this.userRepository.deleteById(id);
+    }
+
+    @Override
+    public List<SearchResult> search(String query) {
+        return userRepository.searchUsers(query)
+                .stream()
+                .map(user -> {
+                    SearchResult result = userMapper.toSearchResultDto(user);
+                    result.setResultType("User");
+                    result.setResultLink("http://localhost:4200/user-info/" + result.getResultLocalId());
+                    return result;
+                })
+                .collect(Collectors.toList());
     }
 }

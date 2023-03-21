@@ -1,11 +1,14 @@
 package sk.sb.training_assignment;
 
+import org.mapstruct.factory.Mappers;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import sk.sb.training_assignment.search.mapper.UserMapper;
+
 import java.util.Arrays;
 
 /**
@@ -35,5 +38,10 @@ public class TrainingAssignmentApplication {
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfig);
 
         return new CorsFilter(urlBasedCorsConfigurationSource);
+    }
+
+    @Bean
+    UserMapper getUserMapper() {
+        return Mappers.getMapper(UserMapper.class);
     }
 }

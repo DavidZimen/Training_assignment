@@ -11,4 +11,9 @@ import java.util.List;
  * Using JpaRepository.
  * @author <a href="https://github.com/DavidZimen">Dávic Zimen</a>
  */
-public interface UserRepository extends JpaRepository<User, Long> {}
+public interface UserRepository extends JpaRepository<User, Long> {
+    @Query("SELECT u FROM User u " +
+            "WHERE UPPER(u.name) LIKE UPPER(CONCAT(CONCAT('%', ?1), '%'))" +
+            "OR UPPER(u.surname) LIKE UPPER(CONCAT(CONCAT('%', ?1), '%'))")
+    List<User> searchUsers(String query);
+}
