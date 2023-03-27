@@ -35,7 +35,4 @@ public class SearchConfig extends SearchExtensionConfigAdapter<SearchResult> {
 
         return apiPropertiesConfig;
     }
-
-
-
 }
