@@ -81,7 +81,7 @@ public class UserService implements Searchable<SearchResult> {
                 .map(user -> {
                     SearchResult result = userMapper.toSearchResultDto(user);
                     result.setResultType("User");
-                    result.setResultLink("http://localhost:4200/user-info/" + result.getResultLocalId());
+                    result.setResultLink("http://localhost:4201/user-info/" + result.getResultLocalId());
                     return result;
                 })
                 .collect(Collectors.toList());
